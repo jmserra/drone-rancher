@@ -129,7 +129,7 @@ func (p *Plugin) Exec() error {
 			if e != nil {
 				return nil, e
 			}
-			if s.State != "upgraded" {
+			if s.State != "upgraded" && s.State != "upgrading" {
 				return nil, errors.New(fmt.Sprintf("Service not upgraded: %s", s.State))
 			}
 			return s, nil
